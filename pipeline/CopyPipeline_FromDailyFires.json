@@ -38,7 +38,349 @@
 						}
 					},
 					"enableStaging": false,
-					"validateDataConsistency": false
+					"validateDataConsistency": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "$['incident_number']"
+								},
+								"sink": {
+									"path": "$['incident_number']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['exposure_number']"
+								},
+								"sink": {
+									"path": "$['exposure_number']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['id']"
+								},
+								"sink": {
+									"path": "$['id']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['address']"
+								},
+								"sink": {
+									"path": "$['address']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['incident_date']"
+								},
+								"sink": {
+									"path": "$['incident_date']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['call_number']"
+								},
+								"sink": {
+									"path": "$['call_number']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['alarm_dttm']"
+								},
+								"sink": {
+									"path": "$['alarm_dttm']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['arrival_dttm']"
+								},
+								"sink": {
+									"path": "$['arrival_dttm']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['close_dttm']"
+								},
+								"sink": {
+									"path": "$['close_dttm']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['city']"
+								},
+								"sink": {
+									"path": "$['city']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['zipcode']"
+								},
+								"sink": {
+									"path": "$['zipcode']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['battalion']"
+								},
+								"sink": {
+									"path": "$['battalion']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['station_area']"
+								},
+								"sink": {
+									"path": "$['station_area']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['suppression_units']"
+								},
+								"sink": {
+									"path": "$['suppression_units']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['suppression_personnel']"
+								},
+								"sink": {
+									"path": "$['suppression_personnel']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['ems_units']"
+								},
+								"sink": {
+									"path": "$['ems_units']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['ems_personnel']"
+								},
+								"sink": {
+									"path": "$['ems_personnel']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['other_units']"
+								},
+								"sink": {
+									"path": "$['other_units']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['other_personnel']"
+								},
+								"sink": {
+									"path": "$['other_personnel']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['first_unit_on_scene']"
+								},
+								"sink": {
+									"path": "$['first_unit_on_scene']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['fire_fatalities']"
+								},
+								"sink": {
+									"path": "$['fire_fatalities']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['fire_injuries']"
+								},
+								"sink": {
+									"path": "$['fire_injuries']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['civilian_fatalities']"
+								},
+								"sink": {
+									"path": "$['civilian_fatalities']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['civilian_injuries']"
+								},
+								"sink": {
+									"path": "$['civilian_injuries']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['number_of_alarms']"
+								},
+								"sink": {
+									"path": "$['number_of_alarms']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['primary_situation']"
+								},
+								"sink": {
+									"path": "$['primary_situation']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['mutual_aid']"
+								},
+								"sink": {
+									"path": "$['mutual_aid']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['action_taken_primary']"
+								},
+								"sink": {
+									"path": "$['action_taken_primary']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['action_taken_secondary']"
+								},
+								"sink": {
+									"path": "$['action_taken_secondary']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['action_taken_other']"
+								},
+								"sink": {
+									"path": "$['action_taken_other']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['detector_alerted_occupants']"
+								},
+								"sink": {
+									"path": "$['detector_alerted_occupants']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['property_use']"
+								},
+								"sink": {
+									"path": "$['property_use']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['supervisor_district']"
+								},
+								"sink": {
+									"path": "$['supervisor_district']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['neighborhood_district']"
+								},
+								"sink": {
+									"path": "$['neighborhood_district']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['estimated_contents_loss']"
+								},
+								"sink": {
+									"path": "$['estimated_contents_loss']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['area_of_fire_origin']"
+								},
+								"sink": {
+									"path": "$['area_of_fire_origin']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['ignition_cause']"
+								},
+								"sink": {
+									"path": "$['ignition_cause']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['ignition_factor_primary']"
+								},
+								"sink": {
+									"path": "$['ignition_factor_primary']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['ignition_factor_secondary']"
+								},
+								"sink": {
+									"path": "$['ignition_factor_secondary']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['heat_source']"
+								},
+								"sink": {
+									"path": "$['heat_source']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['item_first_ignited']"
+								},
+								"sink": {
+									"path": "$['item_first_ignited']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['human_factors_associated_with_ignition']"
+								},
+								"sink": {
+									"path": "$['human_factors_associated_with_ignition']"
+								}
+							}
+						],
+						"collectionReference": ""
+					}
 				},
 				"inputs": [
 					{
@@ -52,11 +394,11 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"cw_fileName": {
-								"value": "@concat(formatDateTime(pipeline().parameters.windowStart,'yyyy'),formatDateTime(pipeline().parameters.windowStart,'MM'),formatDateTime(pipeline().parameters.windowStart,'dd'),'_Fires_Raw_Data')",
+								"value": "@concat(formatDateTime(pipeline().parameters.windowStart,'yyyy'),formatDateTime(pipeline().parameters.windowStart,'MM'),formatDateTime(pipeline().parameters.windowStart,'dd'),'_Fires_Raw_Data.json')",
 								"type": "Expression"
 							},
 							"cw_folderPath": {
-								"value": "@concat(formatDateTime(pipeline().parameters.windowStart,'yyyy'),formatDateTime(pipeline().parameters.windowStart,'MM'))",
+								"value": "@concat('dailyFires/',formatDateTime(pipeline().parameters.windowStart,'yyyy'),formatDateTime(pipeline().parameters.windowStart,'MM'))",
 								"type": "Expression"
 							}
 						}
