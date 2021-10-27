@@ -40,8 +40,8 @@ This is a Data Warehouse projects of Fire Incidents from the Public SF Gov Data
 	property_use
 	area_of_fire_origin
 	ignition_cause
-	ignition_factor_primary
-	ignition_factor_secondary
+	ignition_factor_primary_id_fk
+	ignition_factor_secondary_id_fk
 	heat_source
 	item_first_ignited
 	human_factors_associated_with_ignition
@@ -68,12 +68,12 @@ This is a Data Warehouse projects of Fire Incidents from the Public SF Gov Data
 	neighborhood_district
 
 ## Dimensions: These are the dimensions stablished to match some Fact columns and expand its data
-	DimBattalion
-	DimAction
-	DimSituation
-	DimPropertyUse
-	DimAreaOfFireOrigin
-	DimDistrict
+	DimBattalion: Contains Action Data for 'battalion_id_fk'.
+	DimAction: Contains Action Data for 'action_taken_primary_id_fk' & 'action_taken_secondary_id_fk'.
+	DimSituation: Contains Action Data for 'primary_situation_id_fk'.
+	DimPropertyUse: Contains Action Data for 'property_use_id_fk'.
+	DimAreaOfFireOrigin: Contains Action Data for 'area_of_fire_origin_id_fk'.
+	DimDistrict: Contains Action Data for 'supervisor_district_id_f'k & neighborhood_district_id_fk'.
 	
 ## Assumptions
 	- Only these dimensions are the only dimensions available to be designed
