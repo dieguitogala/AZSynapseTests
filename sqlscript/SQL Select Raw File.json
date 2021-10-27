@@ -1,0 +1,17 @@
+{
+	"name": "SQL Select Raw File",
+	"properties": {
+		"content": {
+			"query": "-- This is auto-generated code\nSELECT TOP 100\n    jsonContent\n --> place the keys that you see in JSON documents in the WITH clause:\n       /*JSON_VALUE (jsonContent, '$.incident_number') incident_number\n       , JSON_VALUE (jsonContent, '$.exposure_number')exposure_number*/\nFROM\n    OPENROWSET(\n        BULK 'https://sablobfiles.dfs.core.windows.net/externaldata/dailyFires/202110/20211027_Fires_Raw_Data.json',\n        FORMAT = 'CSV',\n        FIELDQUOTE = '0x0b',\n        FIELDTERMINATOR ='0x0b',\n        ROWTERMINATOR = '0x0b'\n    )\n    WITH (\n        jsonContent varchar(MAX)\n    ) AS [result]\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "master",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
