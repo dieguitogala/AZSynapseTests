@@ -26,7 +26,7 @@
 					"value": "@dataset().cw_folderPath",
 					"type": "Expression"
 				},
-				"fileSystem": "dailyFires"
+				"fileSystem": "externaldata"
 			}
 		},
 		"schema": {}
