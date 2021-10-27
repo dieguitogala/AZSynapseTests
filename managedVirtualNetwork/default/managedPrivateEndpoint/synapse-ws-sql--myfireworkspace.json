@@ -1,0 +1,10 @@
+{
+	"name": "synapse-ws-sql--myfireworkspace",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/b6a2c656-3091-497a-b450-10f479784cb1/resourceGroups/DefaultResourceGroup-CQ/providers/Microsoft.Synapse/workspaces/myfireworkspace",
+		"groupId": "sql",
+		"fqdns": [
+			"myfireworkspace.98f7d20e-d40f-4533-b4f3-00fc66e8cd5d.sql.azuresynapse.net"
+		]
+	}
+}

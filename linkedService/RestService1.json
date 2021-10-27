@@ -1,0 +1,23 @@
+{
+	"name": "RestService1",
+	"type": "Microsoft.Synapse/workspaces/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "RestService",
+		"typeProperties": {
+			"url": "https://data.sfgov.org/resource/wr8u-xric.json",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous",
+			"authHeaders": {
+				"NXR3OIECheFy0iwgqy6xsTrt1": {
+					"type": "SecureString",
+					"value": "**********"
+				}
+			}
+		},
+		"connectVia": {
+			"referenceName": "AutoResolveIntegrationRuntime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
