@@ -1,0 +1,17 @@
+{
+	"name": "Create Tables",
+	"properties": {
+		"content": {
+			"query": "CREATE TABLE dbo.DimBattalion (\n      battalion_id INT NOT NULL IDENTITY(1,1)\n    , battalion_code VARCHAR(3) NOT NULL\n    , battalion_name VARCHAR(100) NULL\n    , battalion_city_id_fk VARCHAR(100) NOT NULL DEFAULT('SF')\n    , battalion_amount_of_members INT DEFAULT(5)\n    , is_active BIT NOT NULL DEFAULT(1)\n    , deactivation_date DATETIME NULL\n    , deactivation_reason VARCHAR(200) NULL\n)\n\nCREATE TABLE dbo.DimAction (\n      action_id INT NOT NULL IDENTITY(1,1)\n    , action_name VARCHAR(100) NOT NULL\n    , action_description VARCHAR(500) NULL\n    , is_active BIT NOT NULL DEFAULT(1)\n    , deactivation_date DATETIME NULL\n    , deactivation_reason VARCHAR(200) NULL\n)\n\n\nCREATE TABLE dbo.DimSituation (\n      situation_id INT NOT NULL IDENTITY(1,1)\n    , situation_name VARCHAR(100) NOT NULL\n    , situation_description VARCHAR(500) NULL\n    , is_active BIT NOT NULL DEFAULT(1)\n    , deactivation_date DATETIME NULL\n    , deactivation_reason VARCHAR(200) NULL\n)\n\n\nCREATE TABLE dbo.DimPropertyUse (\n      property_use_id INT NOT NULL IDENTITY(1,1)\n    , property_use_name VARCHAR(100) NOT NULL\n    , property_use_description VARCHAR(500) NULL\n    , is_active BIT NOT NULL DEFAULT(1)\n    , deactivation_date DATETIME NULL\n    , deactivation_reason VARCHAR(200) NULL\n)\n\nCREATE TABLE dbo.DimAreaOfFireOrigin (\n      area_id INT NOT NULL IDENTITY(1,1)\n    , area_name VARCHAR(100) NOT NULL\n    , area_description VARCHAR(500) NULL\n    , is_active BIT NOT NULL DEFAULT(1)\n    , deactivation_date DATETIME NULL\n    , deactivation_reason VARCHAR(200) NULL\n)",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "FireIncidentsDW",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
