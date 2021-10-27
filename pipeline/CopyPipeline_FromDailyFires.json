@@ -51,8 +51,14 @@
 						"referenceName": "Destination_StorageAccount",
 						"type": "DatasetReference",
 						"parameters": {
-							"cw_fileName": "@{formatDateTime(pipeline().parameters.windowStart,'yyyy')}@{formatDateTime(pipeline().parameters.windowStart,'MM')}@{formatDateTime(pipeline().parameters.windowStart,'dd')}_Fires_Raw_Data",
-							"cw_folderPath": "@{formatDateTime(pipeline().parameters.windowStart,'yyyy')}@{formatDateTime(pipeline().parameters.windowStart,'MM')}"
+							"cw_fileName": {
+								"value": "@concat(formatDateTime(pipeline().parameters.windowStart,'yyyy'),formatDateTime(pipeline().parameters.windowStart,'MM'),formatDateTime(pipeline().parameters.windowStart,'dd'),'_Fires_Raw_Data')",
+								"type": "Expression"
+							},
+							"cw_folderPath": {
+								"value": "@concat(formatDateTime(pipeline().parameters.windowStart,'yyyy'),formatDateTime(pipeline().parameters.windowStart,'MM'))",
+								"type": "Expression"
+							}
 						}
 					}
 				]
