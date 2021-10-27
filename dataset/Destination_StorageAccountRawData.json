@@ -27,7 +27,8 @@
 					"type": "Expression"
 				},
 				"fileSystem": "dailyFires"
-			}
+			},
+			"encodingName": "UTF-32LE"
 		},
 		"schema": {}
 	},
