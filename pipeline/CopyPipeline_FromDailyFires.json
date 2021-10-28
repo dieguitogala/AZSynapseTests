@@ -6,7 +6,14 @@
 			{
 				"name": "Copy_jhk",
 				"type": "Copy",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "Copy_jhk_copy1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "7.00:00:00",
 					"retry": 0,
@@ -402,6 +409,444 @@
 								"type": "Expression"
 							}
 						}
+					}
+				]
+			},
+			{
+				"name": "Copy_jhk_copy1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Destination",
+						"value": "dailyFires/@{formatDateTime(pipeline().parameters.windowStart,'yyyy')}@{formatDateTime(pipeline().parameters.windowStart,'MM')}@{formatDateTime(pipeline().parameters.windowStart,'dd')}/@{formatDateTime(pipeline().parameters.windowStart,'yyyy')}@{formatDateTime(pipeline().parameters.windowStart,'MM')}@{formatDateTime(pipeline().parameters.windowStart,'dd')}_Fires_Raw_Data"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "RestSource",
+						"httpRequestTimeout": "00:01:40",
+						"requestInterval": "00.00:00:00.010",
+						"requestMethod": "GET"
+					},
+					"sink": {
+						"type": "SqlPoolSink",
+						"preCopyScript": "TRUNCATE TABLE dbo.Raw_FireIncidents",
+						"allowCopyCommand": true
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "DestinationSARawData",
+							"type": "LinkedServiceReference"
+						},
+						"path": {
+							"value": "@concat('externaldata/dailyFires/',formatDateTime(pipeline().parameters.windowStart,'yyyy'),formatDateTime(pipeline().parameters.windowStart,'MM'),'/',formatDateTime(pipeline().parameters.windowStart,'yyyy'),formatDateTime(pipeline().parameters.windowStart,'MM'),formatDateTime(pipeline().parameters.windowStart,'dd'),'_Fires_Raw_Data.json')",
+							"type": "Expression"
+						}
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "$['incident_number']"
+								},
+								"sink": {
+									"name": "incident_number",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['exposure_number']"
+								},
+								"sink": {
+									"name": "exposure_number",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['id']"
+								},
+								"sink": {
+									"name": "id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['address']"
+								},
+								"sink": {
+									"name": "address",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['incident_date']"
+								},
+								"sink": {
+									"name": "incident_date",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"path": "$['call_number']"
+								},
+								"sink": {
+									"name": "call_number",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['alarm_dttm']"
+								},
+								"sink": {
+									"name": "alarm_dttm",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"path": "$['arrival_dttm']"
+								},
+								"sink": {
+									"name": "arrival_dttm",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"path": "$['close_dttm']"
+								},
+								"sink": {
+									"name": "close_dttm",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"path": "$['city']"
+								},
+								"sink": {
+									"name": "city",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['zipcode']"
+								},
+								"sink": {
+									"name": "zipcode",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['battalion']"
+								},
+								"sink": {
+									"name": "battalion",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['station_area']"
+								},
+								"sink": {
+									"name": "station_area",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['suppression_units']"
+								},
+								"sink": {
+									"name": "suppression_units",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['suppression_personnel']"
+								},
+								"sink": {
+									"name": "suppression_personnel",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['ems_units']"
+								},
+								"sink": {
+									"name": "ems_units",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['ems_personnel']"
+								},
+								"sink": {
+									"name": "ems_personnel",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['other_units']"
+								},
+								"sink": {
+									"name": "other_units",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['other_personnel']"
+								},
+								"sink": {
+									"name": "other_personnel",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['first_unit_on_scene']"
+								},
+								"sink": {
+									"name": "first_unit_on_scene",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['fire_fatalities']"
+								},
+								"sink": {
+									"name": "fire_fatalities",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['fire_injuries']"
+								},
+								"sink": {
+									"name": "fire_injuries",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['civilian_fatalities']"
+								},
+								"sink": {
+									"name": "civilian_fatalities",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['civilian_injuries']"
+								},
+								"sink": {
+									"name": "civilian_injuries",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['number_of_alarms']"
+								},
+								"sink": {
+									"name": "number_of_alarms",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['primary_situation']"
+								},
+								"sink": {
+									"name": "primary_situation",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['mutual_aid']"
+								},
+								"sink": {
+									"name": "mutual_aid",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['action_taken_primary']"
+								},
+								"sink": {
+									"name": "action_taken_primary",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['action_taken_secondary']"
+								},
+								"sink": {
+									"name": "action_taken_secondary",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['action_taken_other']"
+								},
+								"sink": {
+									"name": "action_taken_other",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['detector_alerted_occupants']"
+								},
+								"sink": {
+									"name": "detector_alerted_occupants",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['property_use']"
+								},
+								"sink": {
+									"name": "property_use",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['supervisor_district']"
+								},
+								"sink": {
+									"name": "supervisor_district",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['neighborhood_district']"
+								},
+								"sink": {
+									"name": "neighborhood_district",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['estimated_contents_loss']"
+								},
+								"sink": {
+									"name": "estimated_contents_loss",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['area_of_fire_origin']"
+								},
+								"sink": {
+									"name": "area_of_fire_origin",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['ignition_cause']"
+								},
+								"sink": {
+									"name": "ignition_cause",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['ignition_factor_primary']"
+								},
+								"sink": {
+									"name": "ignition_factor_primary",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['ignition_factor_secondary']"
+								},
+								"sink": {
+									"name": "ignition_factor_secondary",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['heat_source']"
+								},
+								"sink": {
+									"name": "heat_source",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['item_first_ignited']"
+								},
+								"sink": {
+									"name": "item_first_ignited",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['human_factors_associated_with_ignition']"
+								},
+								"sink": {
+									"name": "human_factors_associated_with_ignition",
+									"type": "String"
+								}
+							}
+						],
+						"collectionReference": ""
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "Source_FromAPI",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "SqlPoolTable1",
+						"type": "DatasetReference"
 					}
 				]
 			}

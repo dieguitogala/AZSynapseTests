@@ -1,16 +1,16 @@
 {
-	"name": "SQL script 1",
+	"name": "SQL Load script",
 	"properties": {
 		"content": {
-			"query": "",
+			"query": "insert into dbo.DimBattalion (battalion_code, battalion_name)\nselect distinct battalion,SUBSTRING(battalion,1,1) + ' ' + SUBSTRING(battalion,2,3) from dbo.Raw_FireIncidents\n--order by 1\n\nselect * from dbo.DimAction\nselect distinct area_of_fire_origin \nfrom dbo.Raw_FireIncidents\nwhere TRIM(area_of_fire_origin) <> '-'\n\nSET IDENTITY_INSERT dbo.DimAction ON;\nMERGE dbo.DimAction AS TGT\nUSING (\n--insert into dbo.DimAction (action_id, action_name)\nselect distinct substring(action_taken_secondary,1,CHARINDEX('-',action_taken_secondary)-2) action_id\n,substring(action_taken_secondary,CHARINDEX('-',action_taken_secondary)+2,LEN(action_taken_secondary)-1) action_name \nfrom dbo.Raw_FireIncidents\nwhere TRIM(action_taken_secondary) <> '-'\nUNION ALL\nselect distinct substring(action_taken_primary,1,CHARINDEX('-',action_taken_primary)-2) action_id\n,substring(action_taken_primary,CHARINDEX('-',action_taken_primary)+2,LEN(action_taken_primary)-1) action_name from dbo.Raw_FireIncidents\nwhere TRIM(action_taken_primary) <> '-') AS SRC (action_id, action_name)\nON TGT.action_id = SRC.action_id\n    WHEN MATCHED THEN\n        UPDATE SET action_name = src.action_name  \n    WHEN NOT MATCHED THEN  \n        INSERT (action_id, action_name) \n        VALUES (src.action_id, src.action_name) ;\n\nSET IDENTITY_INSERT dbo.DimAction OFF;\n\n\nSET IDENTITY_INSERT dbo.DimAction ON;\ninsert into dbo.DimAction (action_id, action_name)\nSET IDENTITY_INSERT dbo.DimAction OFF;\n",
 			"metadata": {
 				"language": "sql"
 			},
 			"currentConnection": {
-				"databaseName": "master",
-				"poolName": "Built-in"
+				"databaseName": "SQLPoolTest",
+				"poolName": "SQLPoolTest"
 			},
-			"resultLimit": 5000
+			"resultLimit": -1
 		},
 		"type": "SqlQuery"
 	}
