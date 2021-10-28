@@ -78,3 +78,25 @@ This is a Data Warehouse projects of Fire Incidents from the Public SF Gov Data
 ## Assumptions
 	- Only these dimensions are the only dimensions available to be designed
 	- The Dataset changes its content once a day
+
+## Steps:
+	1. Create the Azure Resource Group.
+	2. Add the Synapse Analytics service to the RG.
+	3. Inside Synapse: create Apache Spark and SQL Pool
+	4. Create a new Repository to store all your commits and attach it to your current Synapse instance.
+	5. Create a new Branch and Make sure that all commits are working great.
+	6. Explore how the API Data looks like.
+	7. Create the pipeline in the "integrate" section to retrieve the Data from Fire Incidents API and load it into a SQL Pool table (Without transformations)
+	8. Create the CREATE statements for all DIM and FACT tables
+	9. Prepare each Merge statement capable of loading and updating the data into DIM and FACT tables.
+	10. Store that set of scripts into a Stored Procedure.
+	11. Add the Stored Procedure to the Integration Pipeline.
+	12. Set up a trigger to run in a daily bases.
+	13. Debug all your solution and make it work!
+	
+### Future Steps
+	- Improve the SP performance by adding indexes and temp tables
+	- Improve the DW schema so all entities relate to the FACT table and the architecture gets better.
+	- Create some PySpark scripts to analyze the data in a Dataframe
+	
+	
