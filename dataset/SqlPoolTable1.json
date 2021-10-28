@@ -1,0 +1,296 @@
+{
+	"name": "SqlPoolTable1",
+	"properties": {
+		"annotations": [],
+		"type": "SqlPoolTable",
+		"schema": [
+			{
+				"name": "incident_number",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "exposure_number",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "id",
+				"type": "varchar"
+			},
+			{
+				"name": "address",
+				"type": "varchar"
+			},
+			{
+				"name": "incident_date",
+				"type": "date"
+			},
+			{
+				"name": "call_number",
+				"type": "varchar"
+			},
+			{
+				"name": "alarm_dttm",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "arrival_dttm",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "close_dttm",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "city",
+				"type": "varchar"
+			},
+			{
+				"name": "zipcode",
+				"type": "varchar"
+			},
+			{
+				"name": "battalion",
+				"type": "varchar"
+			},
+			{
+				"name": "station_area",
+				"type": "varchar"
+			},
+			{
+				"name": "box",
+				"type": "varchar"
+			},
+			{
+				"name": "suppression_units",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "suppression_personnel",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ems_units",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ems_personnel",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "other_units",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "other_personnel",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "first_unit_on_scene",
+				"type": "varchar"
+			},
+			{
+				"name": "estimated_property_loss",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "estimated_contents_loss",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "fire_fatalities",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "fire_injuries",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "civilian_fatalities",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "civilian_injuries",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "number_of_alarms",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "primary_situation",
+				"type": "varchar"
+			},
+			{
+				"name": "mutual_aid",
+				"type": "varchar"
+			},
+			{
+				"name": "action_taken_primary",
+				"type": "varchar"
+			},
+			{
+				"name": "action_taken_secondary",
+				"type": "varchar"
+			},
+			{
+				"name": "action_taken_other",
+				"type": "varchar"
+			},
+			{
+				"name": "detector_alerted_occupants",
+				"type": "varchar"
+			},
+			{
+				"name": "property_use",
+				"type": "varchar"
+			},
+			{
+				"name": "area_of_fire_origin",
+				"type": "varchar"
+			},
+			{
+				"name": "ignition_cause",
+				"type": "varchar"
+			},
+			{
+				"name": "ignition_factor_primary",
+				"type": "varchar"
+			},
+			{
+				"name": "ignition_factor_secondary",
+				"type": "varchar"
+			},
+			{
+				"name": "heat_source",
+				"type": "varchar"
+			},
+			{
+				"name": "item_first_ignited",
+				"type": "varchar"
+			},
+			{
+				"name": "human_factors_associated_with_ignition",
+				"type": "varchar"
+			},
+			{
+				"name": "structure_type",
+				"type": "varchar"
+			},
+			{
+				"name": "structure_status",
+				"type": "varchar"
+			},
+			{
+				"name": "floor_of_fire_origin",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "fire_spread",
+				"type": "varchar"
+			},
+			{
+				"name": "no_flame_spead",
+				"type": "varchar"
+			},
+			{
+				"name": "number_of_floors_with_minimum_damage",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "number_of_floors_with_significant_damage",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "number_of_floors_with_heavy_damage",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "number_of_floors_with_extreme_damage",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "detectors_present",
+				"type": "varchar"
+			},
+			{
+				"name": "detector_type",
+				"type": "varchar"
+			},
+			{
+				"name": "detector_operation",
+				"type": "varchar"
+			},
+			{
+				"name": "detector_effectiveness",
+				"type": "varchar"
+			},
+			{
+				"name": "detector_failure_reason",
+				"type": "varchar"
+			},
+			{
+				"name": "automatic_extinguishing_system_present",
+				"type": "varchar"
+			},
+			{
+				"name": "automatic_extinguishing_sytem_type",
+				"type": "varchar"
+			},
+			{
+				"name": "automatic_extinguishing_sytem_perfomance",
+				"type": "varchar"
+			},
+			{
+				"name": "automatic_extinguishing_sytem_failure_reason",
+				"type": "varchar"
+			},
+			{
+				"name": "number_of_sprinkler_heads_operating",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "supervisor_district",
+				"type": "varchar"
+			},
+			{
+				"name": "neighborhood_district",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Raw_FireIncidents"
+		},
+		"sqlPool": {
+			"referenceName": "SQLPoolTest",
+			"type": "SqlPoolReference"
+		}
+	}
+}

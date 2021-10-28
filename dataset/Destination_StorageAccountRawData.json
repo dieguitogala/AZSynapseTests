@@ -1,8 +1,8 @@
 {
-	"name": "Destination_StorageAccount",
+	"name": "Destination_StorageAccountRawData",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "myfireworkspace-WorkspaceDefaultStorage",
+			"referenceName": "DestinationSARawData",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
@@ -26,8 +26,9 @@
 					"value": "@dataset().cw_folderPath",
 					"type": "Expression"
 				},
-				"fileSystem": "externaldata"
-			}
+				"fileSystem": "dailyFires"
+			},
+			"encodingName": "UTF-32LE"
 		},
 		"schema": {}
 	},
